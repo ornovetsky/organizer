@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="style.css">
+  <title>Ornovetsky's Organizer</title>
+</head>
+<body>
+  <div class="container-main">
+    <div class="pomodoro-container column">
+        <div class="column-1">
+          <div class="clock" id="clock"><div class="clock-inside"></div></div>
+          <div class="play-pause" id="play-pause"><i class="fas fa-play"></i></div>
+          <div class="settings" id="settings"><i class="fas fa-sliders-h"></i></div>
+        </div>
+        <div class="column-2">
+          <div class="pomodoro-clock" id="pomodoro-clock">
+            <div class="pomodoro-clock-inside"><p class="timer" id="timer">25:00</p>
+            </div>
+          </div>
+          <input type="text" class="pomodoro-task-input" id="pomodoro-task-input">
+        </div>
+        <div class="column-3">
+          <div class="pomodoro-counter" id="pomodoro-counter"><div class="pomodoro-counter-inside"><p>4</p></div></div>
+          <div class="stop-done" id="stop-done"><i class="fas fa-stop"></i></div>
+          <div class="stats" id="stats"><i class="fas fa-chart-bar"></i></div>
+        </div>
+    </div>
+    <div class="container-organizer">
+      <div class="line"></div>
+      <div class="container-organizer-inside">
+
+        <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+        <div class="day-sel">
+               <div class="day-sel-number"><p class="date-sel" id="date-sel">15</p></div> 
+                <div class="day-sel-text">
+                    <div class="day-sel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-sel" id="pom-amount-sel">5</p>
+                    </div>
+                    <!-- <input type="text" class="day-sel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor "> -->
+                    <textarea name="" id="day-notes-input" cols="30" rows="10" class="day-sel-notes-input" placeholder="Phasellus vestibulum lorem sed risus ultricies tristique nulla. Purus ut faucibus pulvinar elementum. Nulla facilisi etiam dignissim diam quis enim lobortis. Tempor id eu nisl nunc mi ipsum. Consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat. Eu consequat ac felis donec et odio. Enim sit amet venenatis urna cursus. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Sit amet volutpat consequat mauris nunc. Duis tristique sollicitudin nibh sit amet commodo nulla. Nisl tincidunt eget nullam non nisi est sit. Curabitur vitae nunc sed velit dignissim. Sed risus ultricies tristique nulla aliquet enim tortor."></textarea>
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+         <div class="day-unsel">
+               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
+                <div class="day-unsel-text">
+                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
+                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
+                    </div>
+                    <input type="text" class="day-unsel-notes-input" id="day-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
+              </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
