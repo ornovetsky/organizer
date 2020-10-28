@@ -58,6 +58,56 @@ textarea::-webkit-scrollbar {
   background: linear-gradient(0deg, #E7EFF4, #E7EFF4);
   box-shadow: -8px -8px 16px rgba(255, 255, 255, 0.8), 8px 6px 16px rgba(131, 163, 184, 0.5);
   border-radius: 72px;
+
+}
+
+.navbar {
+  position: absolute;
+  left:50%;
+  z-index: 66;
+  font-size: 12px;
+}
+
+.navbar-container {
+  transform: translate(-50%, 0);
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.btn-nav {
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin:0 25px;
+  width: 17px;
+  height: 17px;
+  border-radius: 50%;
+  background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
+  box-shadow: 5px 5px 16px rgba(131, 163, 184, 0.5), -5px -5px 12px #FFFFFF;
+}
+
+.navbar-container i {
+  
+  width: 20px;
+  color: #8D8D8D;
+}
+
+
+.navbar .month {
+  font-family: Roboto;
+  font-weight: 400;
+  color: #8D8D8D;
+  font-size: 16px;
+  margin:0 20px;
+}
+
+.text {
+  font-family: Roboto;
+  font-weight: 400;
+  color: #8D8D8D;
+  font-size: 16px;
 }
 
 .column-1 {
@@ -87,7 +137,7 @@ textarea::-webkit-scrollbar {
 
 .play-pause {
   border-radius: 50%;
-  width: 53px;
+  width: 54px;
   height: 54px;
   padding: 4px 4px;
   background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
@@ -99,7 +149,10 @@ textarea::-webkit-scrollbar {
 }
 
 .play-pause i {
+height: 16px;
+width: 16px;
 margin:auto;
+padding-left: 4px;
 color:#8b8b8b;
 }
 
@@ -251,18 +304,13 @@ color:#8b8b8b;
     background: linear-gradient(0deg, #E7EFF4, #E7EFF4);
     box-shadow: inset -7px -7px 16px rgba(255, 255, 255, 0.8), inset 7px 7px 16px rgba(143, 170, 187, 0.5);
     border-radius: 53px;
+    position: absolute;
+    padding:20px;
+    overflow: scroll;
   }
 /*
   INPUT AND DAYS
 */
-.container-organizer-inside {
-  /* display:flex;
-  flex: 0 0 auto;
-  flex-direction: column;  */
-  position: absolute;
-  padding:20px;
-  overflow: scroll;
-}
 
 .container-organizer-inside::-webkit-scrollbar {
   width:1px;
@@ -271,8 +319,9 @@ color:#8b8b8b;
 
 .line {
   background-color:black;
-  position:absolute;
-  left:130px;
+  position: absolute;
+  /* left:230px; */
+  margin-right:549px;
   z-index: 5;
   flex-shrink: 0;
   height:489px;
@@ -371,10 +420,10 @@ color:#8b8b8b;
 
   .day-sel {
     display:flex;
-    flex: 0 0 auto;
+    /* flex: 0 0 auto; */
     /* margin:0 auto; */
-    margin-top:10px;
-    margin-bottom:10px;
+    margin-top:12px;
+    margin-bottom:12px;
     margin-left:25px;
     margin-right:auto;
     width: 600px;
