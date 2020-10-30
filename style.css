@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
-
+html {
+  scroll-behavior: smooth;
+}
 * {
   box-sizing: border-box;
   margin:0;
@@ -73,6 +75,11 @@ textarea::-webkit-scrollbar {
   display:flex;
   justify-content: center;
   align-items: center;
+}
+
+.navbar p.month {
+  width: 100px;
+  white-space: nowrap;
 }
 
 .btn-nav {
@@ -339,6 +346,12 @@ color:#8b8b8b;
     height: 32px;
   }
 
+  .day-unsel textarea {
+    overflow: hidden;
+    height: 25px;
+    padding-top:5px;
+  }
+
   .day-unsel-number {
     z-index: 10;
     margin-left:10px;
@@ -356,6 +369,7 @@ color:#8b8b8b;
   }
 
   .day-unsel-text {
+
     height:32px;
     width: 512px;
     background: #E7EFF4;
@@ -363,7 +377,7 @@ color:#8b8b8b;
     border-radius: 40px;
     display:flex;
     padding-right: 30px;
-    padding-top:2px;
+    padding-top:px;
     padding-left:2px;
   }
 
@@ -394,6 +408,7 @@ color:#8b8b8b;
   }
 
   .day-unsel-pomodoro-amount {
+    margin-top:2px;
     display: flex;
     flex-shrink: 0;
     font-family: Roboto;
