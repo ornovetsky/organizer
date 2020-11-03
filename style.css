@@ -77,11 +77,6 @@ textarea::-webkit-scrollbar {
   align-items: center;
 }
 
-.navbar p.month {
-  width: 100px;
-  white-space: nowrap;
-}
-
 .btn-nav {
   display:flex;
   justify-content: center;
@@ -96,9 +91,11 @@ textarea::-webkit-scrollbar {
 }
 
 .navbar-container i {
-  
+  display:flex;
+  align-items: center;
   width: 20px;
   color: #8D8D8D;
+  justify-content: center;
 }
 
 
@@ -108,6 +105,12 @@ textarea::-webkit-scrollbar {
   color: #8D8D8D;
   font-size: 16px;
   margin:0 20px;
+}
+
+.navbar p.month {
+  width: 100px;
+  white-space: nowrap;
+
 }
 
 .text {
@@ -306,8 +309,8 @@ color:#8b8b8b;
   }
 
   .container-organizer-inside {
-    width: 693.87px;
-    height: 529.17px;
+    height: 523px;
+    width: 694px;
     background: linear-gradient(0deg, #E7EFF4, #E7EFF4);
     box-shadow: inset -7px -7px 16px rgba(255, 255, 255, 0.8), inset 7px 7px 16px rgba(143, 170, 187, 0.5);
     border-radius: 53px;
@@ -325,15 +328,15 @@ color:#8b8b8b;
 
 
 .line {
-  background-color:black;
-  position: absolute;
-  /* left:230px; */
-  margin-right:549px;
-  z-index: 5;
-  flex-shrink: 0;
-  height:489px;
-  width:1px;
-  background: radial-gradient(50% 50% at 50% 50%, #C5C5C5 56.77%, rgba(255, 255, 255, 0) 100%);}
+    background-color:black;
+    position: absolute;
+    /* left:230px; */
+    margin-right:549px;
+    z-index: 5;
+    flex-shrink: 0;
+    height:489px;
+    width:1px;
+    background: radial-gradient(50% 50% at 50% 50%, #C5C5C5 56.77%, rgba(255, 255, 255, 0) 100%);}
 /* UNSELECTED */
 
   .day-unsel {
@@ -361,11 +364,11 @@ color:#8b8b8b;
     display: flex;
     flex-shrink: 0;
     justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
-  box-shadow: 5px 5px 16px rgba(131, 163, 184, 0.5), -5px -5px 12px #FFFFFF;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
+    box-shadow: 5px 5px 16px rgba(131, 163, 184, 0.5), -5px -5px 12px #FFFFFF;
   }
 
   .day-unsel-text {
@@ -404,7 +407,6 @@ color:#8b8b8b;
 
   .day-unsel-notes-input:focus {
     outline:0px solid #8b8b8b;
-
   }
 
   .day-unsel-pomodoro-amount {
@@ -444,10 +446,11 @@ color:#8b8b8b;
     width: 600px;
     height: 145px;
     /* flex-shrink: 0; */
-
   }
 
+.day-sel .btn-nav {
 
+}
 
   .day-sel-number {
     z-index:10;
@@ -456,7 +459,6 @@ color:#8b8b8b;
     margin-top:40px;
     margin-bottom:0;
     display: flex;
-
     flex-shrink: 0;
     width: 54px;
     height: 54px;
@@ -526,4 +528,79 @@ color:#8b8b8b;
     font-weight: 400;
     color: #8D8D8D;
     font-size: 16px;
+  }
+
+  /* Notes MODE */
+  .note-container {
+    display:grid;
+    grid-auto-flow: row dense;
+    width: 100%;
+    grid-template-columns: repeat(2, 1fr);
+
+  }
+
+  .note-container .note {
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    margin-right: 18px;
+    grid-column: span 1;
+    height: 145px;
+    width: 319px;
+    background: #E7EFF4;
+    box-shadow: 5px 5px 16px rgba(131, 163, 184, 0.5), -5px -5px 12px #FFFFFF;
+    border-radius: 40px;
+    margin-bottom: 20px;
+  }
+
+  .note-container .note-wide {
+    display:flex;
+    text-align: center;
+    justify-content: center;
+    margin-right: 18px;
+    grid-column: span 2;
+    height: 145px;
+    background: #E7EFF4;
+    box-shadow: 5px 5px 16px rgba(131, 163, 184, 0.5), -5px -5px 12px #FFFFFF;
+    border-radius: 40px;
+    margin-bottom: 20px;
+  }
+  .note-container .note-wide textarea {
+width: 100%;
+  }
+
+  .note-container .buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .note-container .btn-nav {
+    margin:10px 10px;
+    font-family: Roboto;
+    font-weight: 400;
+    color: #8D8D8D;
+  }
+
+  .note-container .btn-nav p {
+
+    transform: rotate(90deg);  
+  }
+
+  .note-container textarea {
+    background:transparent;
+    border:none;
+    font-family: Roboto;
+    font-weight: 400;
+    color: #8D8D8D;
+    font-size: 16px;
+    /* border:none; */
+    width: 280px;
+    margin-top:20px;
+    margin-left:20px;
+    margin-bottom: 20px;
+  }
+
+  .note-container textarea:focus {
+    outline:0px solid #8b8b8b;
   }

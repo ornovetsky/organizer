@@ -13,11 +13,13 @@ const months = [
   "December",
 ];
 // const dayUnsel = document.getElementsByClassName("day-unsel");
+const noteBtn = document.getElementById("nav-notes")
+const filterPlus = document.getElementById("nav-filter")
+const line = document.getElementsByClassName("line")[0]
+
 const dayUnsel = document.querySelectorAll(".day-unsel")
 const ContainerOrganizer = document.getElementsByClassName("container-organizer-inside")[0]
-
 const date = new Date();
-
 const lastDay = new Date(date.getFullYear(), date.getMonth()+1, 0).getDate()
 
 let currentMonth = date.getMonth()
@@ -26,6 +28,101 @@ let currentYear = date.getFullYear()
 // display current month that is selected, default - today
 const displayMonth = document.querySelector(".month")
 displayMonth.innerHTML = currentYear.toString().slice(2,4) + ' ' + months[currentMonth]
+
+
+
+// switch notes Mode from days to blocks
+function noteMode(){
+  if(days != ''){
+ ContainerOrganizer.innerHTML = `
+ <div class="note-container">
+ </div>
+ `
+ document.querySelector(".note-container").innerHTML = notes
+ line.style.display = "none"
+ filterPlus.innerHTML = `<p class="text">+</p>`
+ noteBtn.innerHTML = `<i class="fas fa-list-ul"></i>`
+ displayMonth.innerHTML = "&nbsp;&nbsp;Your Notes"
+ nextMonth.style.visibility = "hidden"
+ prevMonth.style.visibility = "hidden"
+
+ days = ''
+  } else {
+    renderNotes()
+    line.style.dis
+    play = ""
+    filterPlus.innerHTML = `<i class="fas fa-filter"></i>`
+    noteBtn.innerHTML = `<i class="far fa-sticky-note"></i>`
+    displayMonth.innerHTML = currentYear.toString().slice(2,4) + ' ' + months[currentMonth]
+    nextMonth.style.visibility = ""
+    prevMonth.style.visibility = ""
+  }
+}
+
+// note Creating function. Each note has to have a unique ID. Buttons within function have to access this id/number.
+//Has to be an array. to be able to move the notes around. Have to be able to select notes by ID-numbr 
+
+let notesArr1 = [`<div class="note">
+<textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
+<div class="buttons-container">
+  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
+</div>
+</div>`,
+`<div class="note">
+    <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
+    <div class="buttons-container">
+      <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
+    </div>
+</div>`]
+///////////////////////////////////// S T I C K E R S ////////////////////////////////////
+
+let stickersArr = []
+// has to be stored in localstorage in function and also has to get the number from localstorage
+let stickersNumber = 0
+
+// let objectyle = {step:0}
+
+function addSticker() {
+stickersNumber++
+stickersArr.push(`<div class="note">
+<textarea style="resize: none;" name="" id="sticker-${stickersNumber}" cols="30" rows="10"></textarea>
+<div class="buttons-container">
+  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
+</div>
+</div>`)
+}
+
+function moveStickerUp(){
+  
+}
+
+function renderStickers(){
+  for(let j=0; j < stickersNumber; j++) {
+document.querySelector(".note-container").innerHTML = stickersArr[j]
+  }
+}
+
+///////////////////////////////////// N A V B A R  ////////////////////////////////////
+
+// Button that adds or filters the Notes
+function filterAddNote(){
+  
+  if(days != ''){
+    // filtering function
+console.log('filtering')
+  } else {
+    // add a note function
+    notes+= `<div class="note">
+    <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
+    <div class="buttons-container">
+      <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
+    </div>
+</div>`
+document.querySelector(".note-container").innerHTML = notes
+console.log('adding note')
+  }
+}
+
 
 //Change current month
 const nextMonth = document.getElementById('nav-month-next')
@@ -56,8 +153,11 @@ prevMonth.addEventListener('click', () => {
   }
 })
 
+///////////////////////////////////// N O T E S   ////////////////////////////////////
+
 
 let days = "";
+let notes = "";
 
 function onInput(i){
   let currentId = date.getFullYear() + '-' + currentMonth + '-' + i
@@ -136,11 +236,6 @@ ContainerOrganizer.innerHTML = days;
 }}
 
 renderNotes();
-
-// как показывать контент localStorage.getItem('key', 'value') ? key- дата. айди каждого инпута - дата 
-
-// сделать инпут хранящийся в локалсторедж. И чтобы он рендерился при каджом ререндере.
-// --П перспективе написать вместо for loop forEach для нотес.---------------// 
  
 // let notes = []
 // notes.length = lastDay
@@ -156,3 +251,11 @@ renderNotes();
 // </div>`
 // })
 
+// note delete button (defunct)        <div class="btn-nav" onclick="noteDel(${i})" id="note-del-${i}"><p class="text">x</p></div>
+// function noteDel(i){
+//   console.log('asd')
+//   let currentId = date.getFullYear() + '-' + currentMonth + '-' + i
+//   localStorage.removeItem(currentId)
+//   // ne renderitsya prosto
+
+// }

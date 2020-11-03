@@ -30,118 +30,37 @@
     </div>
     <div class="navbar">
       <div class="navbar-container">
-          <div class="btn-nav" id="nav-filter"><i class="fas fa-filter"></i></div>
+          <div class="btn-nav" id="nav-filter" onclick="filterAddNote()"><i class="fas fa-filter"></i></div>
           <div class="btn-nav" id="nav-month-prev"><p class="text"><</p></div>
           <p class="month">October</p>
           <div class="btn-nav" id="nav-month-next"><p class="text">></p></div>
-          <div class="btn-nav" id="nav-notes"><i class="fas fa-sticky-note"></i></div>
+          <div class="btn-nav" id="nav-notes" onclick="noteMode()"><i class="far fa-sticky-note"></i></div>
       </div>
     </div>
     <div class="container-organizer">
-  
-      <div class="line"></div>
+      <div class="line" style=""></div>
       <div class="container-organizer-inside">
-<!-- 
-        <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-        <div class="day-sel">
-               <div class="day-sel-number"><p class="date-sel" id="date-sel">15</p></div> 
-                <div class="day-sel-text">
-                    <div class="day-sel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-sel" id="pom-amount-sel">5</p>
-                    </div>
-                    <textarea name="" cols="30" rows="10" class="day-sel-notes-input" placeholder="Phasellus vestibulum lorem sed risus ultricies tristique nulla. Purus ut faucibus pulvinar elementum. Nulla facilisi etiam dignissim diam quis enim lobortis. Tempor id eu nisl nunc mi ipsum. Consectetur purus ut faucibus pulvinar elementum integer enim neque volutpat. Eu consequat ac felis donec et odio. Enim sit amet venenatis urna cursus. Facilisi nullam vehicula ipsum a arcu cursus vitae congue mauris. Sit amet volutpat consequat mauris nunc. Duis tristique sollicitudin nibh sit amet commodo nulla. Nisl tincidunt eget nullam non nisi est sit. Curabitur vitae nunc sed velit dignissim. Sed risus ultricies tristique nulla aliquet enim tortor."></textarea>
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-         <div class="day-unsel">
-               <div class="day-unsel-number"><p class="date-unsel" id="date-unsel">16</p></div> 
-                <div class="day-unsel-text">
-                    <div class="day-unsel-pomodoro-amount" id="day-pomodoro-amount">
-                      <p class="pom-amount-unsel" id="pom-amount-unsel">5</p>
-                    </div>
-                    <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-              </div>
-        </div>
-      </div> -->
+          <!-- <div class="note-container">
+            <div class="note">
+                <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
+                <div class="buttons-container">
+                  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
+                </div>
+            </div>
+            <div class="note">
+                <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
+                <div class="buttons-container">
+                  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
+                </div>
+            </div>
+            <div class="note-wide">
+                <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
+                <div class="buttons-container">
+                  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
+                </div>
+            </div>
+          
+          </div> -->
     </div>
   </div>
   <script src="script.js"></script>
