@@ -38,7 +38,7 @@ function noteMode(){
  <div class="note-container">
  </div>
  `
- document.querySelector(".note-container").innerHTML = notes
+ stickersRender()
  line.style.display = "none"
  filterPlus.innerHTML = `<p class="text">+</p>`
  noteBtn.innerHTML = `<i class="fas fa-list-ul"></i>`
@@ -59,71 +59,7 @@ function noteMode(){
   }
 }
 
-// note Creating function. Each note has to have a unique ID. Buttons within function have to access this id/number.
-//Has to be an array. to be able to move the notes around. Have to be able to select notes by ID-numbr 
-
-let notesArr1 = [`<div class="note">
-<textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
-<div class="buttons-container">
-  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
-</div>
-</div>`,
-`<div class="note">
-    <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
-    <div class="buttons-container">
-      <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
-    </div>
-</div>`]
-///////////////////////////////////// S T I C K E R S ////////////////////////////////////
-
-let stickersArr = []
-// has to be stored in localstorage in function and also has to get the number from localstorage
-let stickersNumber = 0
-
-// let objectyle = {step:0}
-
-function addSticker() {
-stickersNumber++
-stickersArr.push(`<div class="note">
-<textarea style="resize: none;" name="" id="sticker-${stickersNumber}" cols="30" rows="10"></textarea>
-<div class="buttons-container">
-  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
-</div>
-</div>`)
-}
-
-function moveStickerUp(){
-  
-}
-
-function renderStickers(){
-  for(let j=0; j < stickersNumber; j++) {
-document.querySelector(".note-container").innerHTML = stickersArr[j]
-  }
-}
-
 ///////////////////////////////////// N A V B A R  ////////////////////////////////////
-
-// Button that adds or filters the Notes
-function filterAddNote(){
-  
-  if(days != ''){
-    // filtering function
-console.log('filtering')
-  } else {
-    // add a note function
-    notes+= `<div class="note">
-    <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
-    <div class="buttons-container">
-      <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
-    </div>
-</div>`
-document.querySelector(".note-container").innerHTML = notes
-console.log('adding note')
-  }
-}
-
-
 //Change current month
 const nextMonth = document.getElementById('nav-month-next')
 nextMonth.addEventListener('click', () => {
@@ -153,6 +89,137 @@ prevMonth.addEventListener('click', () => {
   }
 })
 
+///////////////////////////////////// N A V B A R  ////////////////////////////////////
+
+let stickersArr = []
+let stickersIDs = []
+let stickersContent = []
+let id
+let stickersNumber
+
+function defineStickersNumber(){
+  if(localStorage.getItem('stickersCount') === null) {
+  console.log('no stickers Count Initially')
+stickersNumber = 0
+localStorage.setItem('stickersCount', stickersNumber)
+} else {
+  console.log('Have stickers Count in localstorage')
+stickersNumber = Number(localStorage.getItem('stickersCount'))+1
+}
+}
+
+defineStickersNumber()
+/////////////////////// S T I C K E R // M O D E /// ADD A NOTE ////////////////////////////////
+function filterAddNote(){
+  if(days != ""){
+    // filtering function
+console.log('filtering')
+  } else {
+    //2nd event  Когда у нас есть данные нам нужно получить их из локалстораге, данные = количество стикеров.StickersCount
+    // значит их нельзя оверрайдить а только задавать.
+    // problem 05nov after f5 stickersNumber is 1 iteration behind.
+    console.log('adding note fired off', stickersNumber)
+    // stickersNumber = localStorage.getItem('stickersCount')
+    const id = stickersNumber
+    stickersIDs.push(id)
+    localStorage.setItem('IDs', stickersIDs)
+    localStorage.setItem('stickersCount', stickersNumber)
+    //3rd event
+    console.log('stickersNymber before render', stickersNumber)
+    stickersNumber++
+    stickersRender()
+//     stickersArr.push(`<div onclick="stickerExpand(${id})" onfocusout="stickerRetract(${id})" id="sticker-${id}" class="note">
+//     <textarea  oninput="stickerInput(${id})" id="textarea-${id}" style="resize: none;" cols="30" rows="10"></textarea>
+//     <div class="buttons-container">
+//       <div onclick="stickerUp(${id})" class="btn-nav rotate1"><p><</p></div><div onclick="stickerDelete(${id})" class="btn-nav">x</div><div onclick="stickerDown(${id})"class="btn-nav rotate2"><p>></p></div>
+//     </div>
+//     </div>`)
+// document.querySelector(".note-container").innerHTML = stickersArr.join(' ')
+  }
+}
+
+function stickersRender(){
+  if (localStorage.getItem('IDs')!= null) {
+    console.log('stickersRender fired off')
+  stickersIDs = localStorage.getItem('IDs').split(',')
+  let stAmount = localStorage.getItem('stickersCount')
+  console.log(stAmount,  localStorage.getItem('stickersCount') )
+  stickersArr = []
+  for (let i=0;i<=stAmount;i++) {
+    console.log('sticker rendered:', i, 'stAmount=', stAmount)
+  id = stickersIDs[i]
+  stickersArr.push(`<div onclick="stickerExpand(${id})" onfocusout="stickerRetract(${id})" id="sticker-${id}" class="note">
+  <textarea  oninput="stickerInput(${id})" id="textarea-${id}" style="resize: none;" cols="30" rows="10"></textarea>
+  <div class="buttons-container">
+    <div onclick="stickerUp(${id})" class="btn-nav rotate1"><p><</p></div><div onclick="stickerDelete(${id})" class="btn-nav">x</div><div onclick="stickerDown(${id})"class="btn-nav rotate2"><p>></p></div>
+  </div>
+  </div>`) 
+  }
+  document.querySelector(".note-container").innerHTML = stickersArr.join(' ')
+stickersContentRender()
+  }
+
+  else {
+    console.log('no content, else')
+    days = ""
+  filterAddNote() ///1st event
+}}
+
+// on basis of stickersIDs. and textarea-id
+function stickersContentRender(){
+for(let i=0;i<stickersIDs.length;i++){
+let textAreaContent = document.getElementById(`textarea-${stickersIDs[i]}`)
+textAreaContent.innerHTML = localStorage.getItem(`sticker-${stickersIDs[i]}`)
+console.log('stickersContentRender fired off', `sticker-${stickersIDs[i]}`)
+}}
+
+function stickerInput(id){
+  let textArea = document.getElementById(`textarea-${id}`)
+  let currentId = 'sticker-' + id.toString()
+  localStorage.setItem(currentId, textArea.value)
+  // document.getElementById(`sticker-${id}`).children[0].innerText = currentStickerInput.value
+  stickersContent[id] = textArea.value
+}
+
+function stickerDelete(id){
+// delete localstorage content and IDs, decrease localstorage stickersCount
+localStorage.removeItem(`sticker-${id}`)
+let newStickerIds = localStorage.getItem('IDs').split(',')
+// console.log('id:', id, newStickerIds)
+newStickerIds.splice(id,1)
+localStorage.setItem('IDs', newStickerIds)
+localStorage.setItem('stickersCount', localStorage.getItem('stickersCount')-1)
+// delete divs
+
+
+stickersRender()
+}
+
+function stickerUp(id){
+}
+
+function stickerDown(id){
+}
+
+function stickerExpand(id) {
+// let sticker = document.getElementById(`sticker-${id}`)
+// sticker.classList.remove("note")
+// sticker.classList.add("note-wide")
+}
+
+function stickerRetract(id){
+  // let sticker = document.getElementById(`sticker-${id}`)
+  // sticker.classList.remove("note-wide")
+  // sticker.classList.add("note")
+}
+
+function reset(){
+  stickersIDs = []
+  localStorage.removeItem('IDs')
+  stickersArr = []
+  stickersNumber = 0
+  localStorage.clear()
+}
 ///////////////////////////////////// N O T E S   ////////////////////////////////////
 
 
@@ -236,26 +303,3 @@ ContainerOrganizer.innerHTML = days;
 }}
 
 renderNotes();
- 
-// let notes = []
-// notes.length = lastDay
-// notes.forEach(el, index => {
-// el = `<div class="day-unsel" id="note-${index}">
-// <div class="day-unsel-number"><p class="date-unsel">${index}</p></div> 
-//  <div class="day-unsel-text">
-//      <div class="day-unsel-pomodoro-amount"
-//        <p class="pom-amount-unsel">5</p>
-//      </div>
-//      <input type="text" class="day-unsel-notes-input" placeholder="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor ">
-// </div>
-// </div>`
-// })
-
-// note delete button (defunct)        <div class="btn-nav" onclick="noteDel(${i})" id="note-del-${i}"><p class="text">x</p></div>
-// function noteDel(i){
-//   console.log('asd')
-//   let currentId = date.getFullYear() + '-' + currentMonth + '-' + i
-//   localStorage.removeItem(currentId)
-//   // ne renderitsya prosto
-
-// }
