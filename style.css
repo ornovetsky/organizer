@@ -86,8 +86,12 @@ textarea::-webkit-scrollbar {
   width: 17px;
   height: 17px;
   border-radius: 50%;
+  color: #8D8D8D;
   background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
   box-shadow: 5px 5px 16px rgba(131, 163, 184, 0.5), -5px -5px 12px #FFFFFF;
+}
+.btn-nav:hover {
+  cursor: pointer;
 }
 
 .navbar-container i {
@@ -110,7 +114,6 @@ textarea::-webkit-scrollbar {
 .navbar p.month {
   width: 100px;
   white-space: nowrap;
-
 }
 
 .text {
@@ -167,8 +170,10 @@ color:#8b8b8b;
 }
 
 .settings {
-  margin:31px auto;
-  justify-content: center;
+  margin-top:31px;
+  margin-bottom:26px;
+  margin-left:auto;
+  margin-right:auto;   justify-content: center;
   display: flex;
   text-align: center;
   width: 31px;
@@ -183,6 +188,10 @@ color:#8b8b8b;
   color:#8b8b8b;
 }
 
+.play-pause:hover {
+  cursor: pointer;
+}
+
  .column-2 {
   height:314px;
   display:flex;
@@ -193,7 +202,7 @@ color:#8b8b8b;
   margin-top:31px;
   margin-left:auto;
   margin-right:auto;
-  margin-bottom:23px; 
+  margin-bottom:24px; 
   width: 204px;
   height: 204px;
   border-radius: 50%;
@@ -226,14 +235,30 @@ color:#8b8b8b;
  }
 
  .pomodoro-task-input {
+  padding-left:16px;
   width: 312px;
   height: 32px;
-  
   background: #E7EFF4;
   box-shadow: inset -4px -4px 8px rgba(255, 255, 255, 0.8), inset 4px 4px 8px rgba(119, 146, 163, 0.4);
   border-radius: 72px;
   border: 0;
+  font-family: Roboto;
+  font-weight: 400;
+  color: #8D8D8D;
+  font-size: 16px;
  }
+ .pomodoro-task-input:focus, input:focus{
+  outline: none;
+}
+
+.pomodoro-task-input::placeholder {
+  font-family: Roboto;
+  font-weight: 400;
+  color: #b3b3b3;
+  font-size: 16px;
+  text-align: center;
+}
+
 
  .column-3 {
   height:314px;
@@ -292,7 +317,10 @@ color:#8b8b8b;
   }
   
   .stats {
-    margin:31px auto;
+    margin-top:31px;
+    margin-bottom:26px;
+    margin-left:auto;
+    margin-right:auto;    
     justify-content: center;
     display: flex;
     text-align: center;
@@ -305,7 +333,17 @@ color:#8b8b8b;
   
   .stats i {
     margin:auto;
+    font-size: 25px;
+
     color:#8b8b8b;
+  }
+  .stats:hover {
+    cursor: pointer;
+  }
+
+
+  .stop-done:hover {
+    cursor: pointer;
   }
 
   .container-organizer-inside {
@@ -447,10 +485,6 @@ color:#8b8b8b;
     height: 145px;
     /* flex-shrink: 0; */
   }
-
-.day-sel .btn-nav {
-
-}
 
   .day-sel-number {
     z-index:10;
@@ -604,3 +638,7 @@ width: 100%;
   .note-container textarea:focus {
     outline:0px solid #8b8b8b;
   }
+
+
+
+  

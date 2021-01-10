@@ -5,32 +5,32 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" integrity="sha512-L7MWcK7FNPcwNqnLdZq86lTHYLdQqZaz5YcAgE+5cnGmlw8JT03QB2+oxL100UeB6RlzZLUxCGSS4/++mNZdxw==" crossorigin="anonymous" />
   <link rel="stylesheet" href="style.css">
-  <title>Ornovetsky's Organizer</title>
+  <title>Andrei's Organizer</title>
 </head>
 <body>
   <div class="container-main">
     <div class="pomodoro-container column">
-        <div class="column-1">
-          <div class="clock" id="clock"><div class="clock-inside"></div></div>
-          <div class="play-pause" id="play-pause"><i class="fas fa-play"></i></div>
-          <div class="settings" id="settings"><i class="fas fa-sliders-h"></i></div>
-        </div>
-        <div class="column-2">
-          <div class="pomodoro-clock" id="pomodoro-clock">
-            <div class="pomodoro-clock-inside"><p class="timer" id="timer">25:00</p>
-            </div>
+      <div class="column-1">
+        <div class="clock" id="clock"><div class="clock-inside"></div></div>
+        <div class="play-pause" id="play-pause"><i class="fas fa-play"></i></div>
+        <div class="settings" id="settings"><i class="fas fa-sliders-h"></i></div>
+      </div>
+      <div class="column-2">
+        <div class="pomodoro-clock" id="pomodoro-clock">
+          <div class="pomodoro-clock-inside"><p class="timer" id="timer">25:00</p>
           </div>
-          <input type="text" class="pomodoro-task-input" id="pomodoro-task-input">
         </div>
-        <div class="column-3">
-          <div class="pomodoro-counter" id="pomodoro-counter"><div class="pomodoro-counter-inside"><p>4</p></div></div>
-          <div class="stop-done" id="stop-done"><i class="fas fa-stop"></i></div>
-          <div class="stats" id="stats"><i class="fas fa-chart-bar"></i></div>
-        </div>
+        <input type="text" class="pomodoro-task-input" id="pomodoro-task-input" placeholder="Please enter your task">
+      </div>
+      <div class="column-3">
+        <div class="pomodoro-counter" id="pomodoro-counter"><div class="pomodoro-counter-inside"><p>4</p></div></div>
+        <div class="stop-done" id="stop-done"><i class="fas fa-stop"></i></div>
+        <div class="stats" id="stats"><i class="fas fa-level-down">↵</i></div>
+      </div>
     </div>
     <div class="navbar">
       <div class="navbar-container">
-          <div class="btn-nav" id="nav-filter" onclick="filterAddNote()"><i class="fas fa-filter"></i></div>
+          <div class="btn-nav" id="nav-filter" onclick=""><i class="fas fa-filter"></i></div>
           <div class="btn-nav" id="nav-month-prev"><p class="text"><</p></div>
           <p class="month">October</p>
           <div class="btn-nav" id="nav-month-next"><p class="text">></p></div>
@@ -38,31 +38,12 @@
       </div>
     </div>
     <div class="container-organizer">
-      <div class="line" style=""></div>
+      <div class="line"></div>
       <div class="container-organizer-inside">
-          <!-- <div class="note-container">
-            <div class="note">
-                <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
-                <div class="buttons-container">
-                  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
-                </div>
-            </div>
-            <div class="note">
-                <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
-                <div class="buttons-container">
-                  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
-                </div>
-            </div>
-            <div class="note-wide">
-                <textarea style="resize: none;" name="" id="" cols="30" rows="10"></textarea>
-                <div class="buttons-container">
-                  <div class="btn-nav rotate1"><p><</p></div><div class="btn-nav">x</div><div class="btn-nav rotate2"><p>></p></div>
-                </div>
-            </div>
-          
-          </div> -->
     </div>
   </div>
-  <script src="script.js"></script>
+  <script src="navbar.js"></script>
+  <script src="notes.js"></script>
+  <script src="stickers.js"></script>
 </body>
 </html>
