@@ -143,9 +143,58 @@ textarea::-webkit-scrollbar {
   width: 78px;
   height: 80px;
   border-radius: 50%;
-
   background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
   box-shadow: inset -7px -7px 16px rgba(255, 255, 255, 0.8), inset 7px 7px 16px rgba(119, 146, 163, 0.4);
+  position: relative;
+}
+.clock-inside:hover {
+  display:flex;
+ margin:auto;
+ background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
+ width: 78px;
+ height: 80px;
+ border-radius:50%;
+ box-shadow: inset -7px -7px 16px rgba(255, 255, 255, 0.8);
+}
+
+.hand-hour {
+  height: 0px;
+  width: 25.64px;
+  border: 3px solid #FF93D4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: 0.3s all;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+  position: absolute;
+  left:21%;
+  top:50%;
+}
+.hand-minute {
+  height: 0px;
+  width: 30.64px;
+  border: 2px solid #FF93D4;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  transform-origin: 100%;
+  transform: rotate(90deg);
+  transition: 0.3s all;
+  transition-timing-function: cubic-bezier(0.1, 2.7, 0.58, 1);
+
+  position: absolute;
+  left:15%;
+  top:50%;
+}
+.date {
+  margin:0 auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  color: #afafaf;
+  visibility: hidden;
+  position:absolute;
+  top:40%;
+  left:2%;
 }
 
 .play-pause {
@@ -212,10 +261,20 @@ color:#8b8b8b;
   justify-content: center;
  }
 
- .pomodoro-clock-inside {
+ .pomodoro-border {
    margin:auto;
   width: 172px;
   height: 172px;
+  border-radius: 50%;
+  background: #FF93D4;
+  display: flex;
+  justify-content: center;
+ }
+
+ .pomodoro-clock-inside {
+   margin:auto;
+  width: 166px;
+  height: 166px;
   border-radius: 50%;
   background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
   box-shadow: inset -7px -7px 16px rgba(255, 255, 255, 0.8), inset 7px 7px 16px rgba(119, 146, 163, 0.4);
@@ -233,6 +292,7 @@ color:#8b8b8b;
   font-size:45px;
   color: #8D8D8D;
  }
+
 
  .pomodoro-task-input {
   padding-left:16px;
@@ -286,8 +346,17 @@ color:#8b8b8b;
   background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
   box-shadow: inset -7px -7px 16px rgba(255, 255, 255, 0.8), inset 7px 7px 16px rgba(119, 146, 163, 0.4);
  }
+ .pomodoro-counter-inside:hover {
+   display:flex;
+  margin:auto;
+  width: 78px;
+  height: 80px;
+  border-radius:50%;
+  box-shadow: inset -7px -7px 16px rgba(255, 255, 255, 0.8);
+  background: linear-gradient(136.53deg, rgba(255, 255, 255, 0.3) 14.8%, rgba(255, 255, 255, 0) 87.9%), #E7EFF4;
+ }
 
- .pomodoro-counter-inside p {
+ .pomodoro-counter-inside .tomato {
   margin:auto;
   font-family: Roboto;
   font-style: normal;
@@ -296,6 +365,19 @@ color:#8b8b8b;
   line-height: 56px;
   font-size:45px;
   color: #8D8D8D;
+  display: visible;
+ }
+
+ .pomodoro-counter-inside .day {
+  margin:auto;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 56px;
+  font-size:45px;
+  color: #8D8D8D;
+  display: none;
  }
 
 .stop-done {
@@ -639,6 +721,3 @@ width: 100%;
     outline:0px solid #8b8b8b;
   }
 
-
-
-  

@@ -22,6 +22,13 @@ function renderTextContent(i){
   }
 }
 
+function renderPomAmount(i){
+let pomDateToday = 'POM-' + date.getFullYear() + '-' + currentMonth + '-' + i
+if (!localStorage.getItem(pomDateToday)){
+  return ''
+}
+return localStorage.getItem(pomDateToday)
+}
 
 function tabClosed(i){
 let currentNote = document.getElementById(`note-${i}`)
@@ -30,7 +37,7 @@ currentNote.classList.add('day-unsel')
 currentNote.innerHTML = ` <div class="day-unsel-number"><p class="date-unsel">${i}</p></div> 
 <div class="day-unsel-text">
     <div class="day-unsel-pomodoro-amount"
-      <p class="pom-amount-unsel">5</p>
+    <p class="pom-amount-unsel" id="pom-amount">${renderPomAmount(i)}</p>
     </div>
     <textarea onfocus="noteExpand(${i})" style="resize: none;" id="${date.getFullYear() + '-' + currentMonth + '-' + i}"  
     name="" cols="30" rows="1" class="day-sel-notes-input" placeholder="">${renderTextContent(i)}</textarea>
@@ -45,7 +52,7 @@ function noteExpand(i){
   currentNote.innerHTML = `  <div class="day-sel-number"><p class="date-sel" id="date-sel">${i}</p></div> 
    <div class="day-sel-text">
        <div class="day-sel-pomodoro-amount" id="day-pomodoro-amount">
-         <p class="pom-amount-sel" id="pom-amount-sel">5</p>
+         <p class="pom-amount-sel" id="pom-amount">${renderPomAmount(i)}</p>
        </div>
        <textarea oninput="onInput(${i})" onfocusout="tabClosed(${i})" 
        id="${date.getFullYear() + '-' + currentMonth + '-' + i}" 
@@ -66,7 +73,7 @@ for (let i=1; i<= lastDay; i++) {
   <div class="day-unsel-number"><p class="date-unsel">${i}</p></div> 
    <div class="day-unsel-text">
        <div class="day-unsel-pomodoro-amount"
-         <p class="pom-amount-unsel">5</p>
+         <p class="pom-amount-unsel" id="pom-amount">${renderPomAmount(i)}</p>
        </div>
        <textarea oninput="onInput(${i})" onfocus="noteExpand(${i})" style="resize: none;" id="${date.getFullYear() + '-' + currentMonth + '-' + i}"  
        name="" cols="30" rows="1" class="day-sel-notes-input" value="penis" 
